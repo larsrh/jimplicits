@@ -18,5 +18,8 @@ project(':jimplicits-logic') {
   }
   test {
     useJUnitPlatform()
+    testLogging {
+      events "passed", "skipped", "failed"
+    }
   }
 }
