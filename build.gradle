@@ -1,0 +1,22 @@
+allprojects {
+  apply plugin: 'java'
+  apply plugin: 'java-library'
+  group = 'info.hupel.jimplicits'
+  version = '0.0.1-SNAPSHOT'
+  sourceCompatibility = '11'
+  repositories {
+    mavenCentral()
+  }
+}
+
+project(':jimplicits-logic') {
+  dependencies {
+    api group: "net.jqwik", name: "jqwik-api", version: "1.1.6"
+    compile group: "com.google.guava", name: "guava", version: "27.1-jre"
+    testImplementation group: "net.jqwik", name: "jqwik-engine", version: "1.1.6"
+    testImplementation group: "org.assertj", name: "assertj-core", version: "3.11.1"
+  }
+  test {
+    useJUnitPlatform()
+  }
+}
