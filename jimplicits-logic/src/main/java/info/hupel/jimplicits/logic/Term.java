@@ -55,7 +55,7 @@ public abstract class Term {
             // this produces a List<List<A>>; the outer list is each condition, the inner list each solution for a condition
             var resolveds =
                     rule.getConditions().stream()
-                            .map(term -> subst(substitution.get()).resolve(rules))
+                            .map(term -> term.subst(substitution.get()).resolve(rules))
                             .collect(Collectors.toList());
 
             // the cartesian product 'inverses' these lists: we compute every combination
@@ -170,8 +170,8 @@ public abstract class Term {
             if (this == o) return true;
             if (o == null || getClass() != o.getClass()) return false;
             Application that = (Application) o;
-            return symbol.equals(that.symbol) &&
-                    arguments.equals(that.arguments);
+            return Objects.equals(symbol, that.symbol) &&
+                    Objects.equals(arguments, that.arguments);
         }
 
         @Override

@@ -1,2 +1,3 @@
 rootProject.name = 'jimplicits'
 include 'jimplicits-logic'
+include 'jimplicits-core'

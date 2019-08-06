@@ -2,7 +2,6 @@ package info.hupel.jimplicits.logic;
 
 import java.util.Collections;
 import java.util.List;
-import java.util.Set;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -41,4 +40,15 @@ public final class Rule<A> {
         return action.apply(copy);
     }
 
+    @Override
+    public String toString() {
+        var builder = new StringBuilder();
+        builder.append(head);
+        if (!conditions.isEmpty()) {
+            builder.append(" :- ");
+            builder.append(conditions);
+        }
+        builder.append(".");
+        return builder.toString();
+    }
 }
